@@ -3,6 +3,7 @@ import React, {useEffect, useState} from "react";
 import { dailyPic, API_KEY} from './API';
 import axios from 'axios';
 import Image from "./image";
+import Text from "./text";
 
 function App() {
   const [dayImage, setDayImage] = useState([])
@@ -21,15 +22,15 @@ function App() {
   console.log('this is ittttt', dayImage.hdurl)
   return (
     <div className="App">
-      <p>
-        Read through the instructions in the README.md file to build your NASA
-        app! Have fun <span role="img" aria-label='go!'>🚀</span>!
-      </p>
     <div className='title'> 
       <h1>{dayImage.title}</h1>
     </div>
-      {<Image img={dayImage.hdurl}/>}
-
+    <div>
+    {<Image img={dayImage.hdurl} />}
+    </div>
+      <div>
+      {<Text message={dayImage.explanation}/>}
+      </div>
     </div>
   );
 }
